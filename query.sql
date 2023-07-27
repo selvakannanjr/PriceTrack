@@ -1,3 +1,3 @@
--- name: ListAuthors :many
-SELECT url FROM links
+-- name: ListProductURLS :many
+SELECT url FROM product
 ORDER BY url;

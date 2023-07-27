@@ -3,19 +3,19 @@
 //   sqlc v1.19.1
 // source: query.sql
 
-package dbint
+package db
 
 import (
 	"context"
 )
 
-const listAuthors = `-- name: ListAuthors :many
-SELECT url FROM links
+const listProductURLS = `-- name: ListProductURLS :many
+SELECT url FROM product
 ORDER BY url
 `
 
-func (q *Queries) ListAuthors(ctx context.Context) ([]string, error) {
-	rows, err := q.db.QueryContext(ctx, listAuthors)
+func (q *Queries) ListProductURLS(ctx context.Context) ([]string, error) {
+	rows, err := q.db.Query(ctx, listProductURLS)
 	if err != nil {
 		return nil, err
 	}
@@ -27,9 +27,6 @@ func (q *Queries) ListAuthors(ctx context.Context) ([]string, error) {
 			return nil, err
 		}
 		items = append(items, url)
-	}
-	if err := rows.Close(); err != nil {
-		return nil, err
 	}
 	if err := rows.Err(); err != nil {
 		return nil, err

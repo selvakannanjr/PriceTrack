@@ -1,5 +1,4 @@
-CREATE TABLE links (
-  id   BIGSERIAL PRIMARY KEY,
-  url text      NOT NULL,
-  UNIQUE(url)
+create table product (
+id serial primary key,
+url text not null
 );

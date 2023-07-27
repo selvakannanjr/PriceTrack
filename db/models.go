@@ -2,11 +2,11 @@
 // versions:
 //   sqlc v1.19.1
 
-package dbint
+package db
 
 import ()
 
-type Link struct {
-	ID  int64
+type Product struct {
+	ID  int32
 	Url string
 }
